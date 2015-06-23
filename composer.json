@@ -1,0 +1,27 @@
+{
+  "name": "shepard/simple-calendar",
+  "description": "Virgo Tutorial Simple Calendar",
+  "require": {
+    "php": ">=5.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.7"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "juhaszadam",
+      "email": "juhasz.adam@virgo.hu"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "Shepard\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Shepard\\Tests\\": "tests/"
+    }
+  }
+}
