@@ -11,6 +11,26 @@ class SimpleManagerTest extends \PHPUnit_Framework_TestCase
     {
         $manager = new SimpleManager();
         $job = $this->mockJob();
+
+        $manager->saveJob($job);
+
+        $this->assertFileExists("/tmp/Shepard/Job.txt");
+    }
+
+    public function testLoad()
+    {
+        $manager = new SimpleManager();
+        $jobs = $manager->loadJob();
+
+        $this->assertNotNull($jobs);
+    }
+
+    /**
+     * @return \PHPUnit_Framework_MockObject_MockObject
+     */
+    public function mockJob()
+    {
+        $job = $this->getMockBuilder(SimpleJob::class)->getMock();
         $deadline = new \DateTime("tomorrow");
         $job->expects($this->once())
             ->method('getAuthor')
@@ -22,16 +42,6 @@ class SimpleManagerTest extends \PHPUnit_Framework_TestCase
             ->method('getDeadline')
             ->will($this->returnValue($deadline));
 
-        $manager->save($job);
-
-        $this->assertFileExists("/tmp/Shepard/Job.txt");
-    }
-
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     */
-    public function mockJob()
-    {
-        return $this->getMockBuilder(SimpleJob::class)->getMock();
+        return $job;
     }
 }
