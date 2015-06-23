@@ -1,8 +1,8 @@
 <html>
 <head>
-
 </head>
 <body>
+<link rel="stylesheet" type="text/css" href="style.css">
 <h1>Listák</h1>
 <?php
 require '../../vendor/autoload.php';

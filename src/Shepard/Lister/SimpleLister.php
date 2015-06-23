@@ -20,7 +20,7 @@ class SimpleLister
 
     public function printJobs(SimpleUser $user)
     {
-        $result = sprintf('<b>List for %s - in timezone "%s"<ul>', $user->getName(), $user->getTimezone()->getName());
+        $result = sprintf('<div class="myList"><b>List for %s - in timezone "%s"<ul>', $user->getName(), $user->getTimezone()->getName());
         foreach ($this->manager->loadJob() as $job) {
             /** @var SimpleJob $job */
             $deadline = $job->getDeadline();
@@ -32,7 +32,7 @@ class SimpleLister
                 $deadline->format('Y.m.d \a\t H:i')
             );
         }
-        $result .= '</ul>';
+        $result .= '</ul></div>';
 
         return $result;
     }
