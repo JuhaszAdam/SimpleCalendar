@@ -4,7 +4,6 @@ namespace Shepard\Entity;
 
 class SimpleUser
 {
-
     /**
      * @var string
      */
