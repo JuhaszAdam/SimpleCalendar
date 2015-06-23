@@ -62,7 +62,7 @@ class SimpleJob
     /**
      * @param \DateTime $deadline
      */
-    public function setDeadline($deadline)
+    public function setDeadline(\DateTime $deadline)
     {
         $this->deadline = $deadline;
     }

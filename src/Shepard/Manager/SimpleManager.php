@@ -26,4 +26,26 @@ class SimpleManager
 
         file_put_contents($path, $content, FILE_APPEND | LOCK_EX);
     }
+
+
+    public function loadJob()
+    {
+        $path = "/tmp/Shepard/Job.txt";
+        $file = fopen($path, "r");
+
+        $jobs = [];
+        while (($buffer = fgets($file)) !== false) {
+            $author = $buffer;
+            $description = fgets($file);
+            $deadline = fgets($file);
+
+            $job = new SimpleJob();
+            $job->setAuthor($author);
+            $job->setDescription($description);
+            $job->setDeadline(new \DateTime($deadline));
+            array_push($jobs, $job);
+        }
+
+        return $jobs;
+    }
 }
