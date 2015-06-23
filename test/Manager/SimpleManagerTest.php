@@ -22,8 +22,6 @@ class SimpleManagerTest extends \PHPUnit_Framework_TestCase
         $manager = new SimpleManager();
         $jobs = $manager->loadJob();
 
-        var_dump($jobs);
-
         $this->assertNotNull($jobs);
     }
 

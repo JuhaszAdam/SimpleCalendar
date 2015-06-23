@@ -11,7 +11,7 @@ class SimpleListerTest extends PHPUnit_Framework_TestCase
     {
         $lister = new SimpleLister($this->mockManager());
 
-        $this->assertStringMatchesFormat("%s - %s Due: %s", $lister->printJobs($this->mockUser()));
+        $this->assertStringMatchesFormat("%sList for%s - in timezone%sBy:%sDue:%s", $lister->printJobs($this->mockUser()));
     }
 
     /**
@@ -55,7 +55,7 @@ class SimpleListerTest extends PHPUnit_Framework_TestCase
     {
         $job = $this->getMockBuilder(SimpleUser::class)->getMock();
         $timezone = new \DateTimeZone("Europe/Budapest");
-        $job->expects($this->once())
+        $job->expects($this->any())
             ->method('getTimezone')
             ->will($this->returnValue($timezone));
 
