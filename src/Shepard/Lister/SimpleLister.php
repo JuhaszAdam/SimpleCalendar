@@ -20,7 +20,7 @@ class SimpleLister
 
     public function printJobs(SimpleUser $user)
     {
-        $result = '<ul>';
+        $result = sprintf('<b>List for %s<ul>', $user->getName());
         foreach ($this->manager->loadJob() as $job) {
             /** @var SimpleJob $job */
             $deadline = $job->getDeadline();
