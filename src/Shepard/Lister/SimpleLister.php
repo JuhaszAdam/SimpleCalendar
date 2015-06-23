@@ -20,7 +20,7 @@ class SimpleLister
 
     public function printJobs(SimpleUser $user)
     {
-        $result = sprintf('<b>List for %s<ul>', $user->getName());
+        $result = sprintf('<b>List for %s - in timezone "%s"<ul>', $user->getName(), $user->getTimezone()->getName());
         foreach ($this->manager->loadJob() as $job) {
             /** @var SimpleJob $job */
             $deadline = $job->getDeadline();

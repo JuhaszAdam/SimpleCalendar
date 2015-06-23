@@ -14,6 +14,7 @@ use Shepard\Manager\SimpleManager;
 
 $user1 = newUser("John Doe", new \DateTimeZone("America/New_York"));
 $user2 = newUser("無名氏", new \DateTimeZone("Asia/Hong_Kong"));
+$user3 = newUser("Juhász Ádám", new \DateTimeZone("Europe/Budapest"));
 
 $manager = new SimpleManager();
 $manager->clearJobs();
@@ -26,6 +27,7 @@ $lister = new SimpleLister($manager);
 
 echo $lister->printJobs($user1);
 echo $lister->printJobs($user2);
+echo $lister->printJobs($user3);
 
 function newUser($name, \DateTimeZone $timezone)
 {
