@@ -26,10 +26,10 @@ class SimpleLister
             $deadline = $job->getDeadline();
             $deadline->setTimezone($user->getTimezone());
 
-            $result .= sprintf("<li>%s - %s Due: %s</li>",
-                $job->getAuthor(),
+            $result .= sprintf("<li>%s  <ul><li>By: %s</li> <li>Due: %s</li></ul></li>",
                 $job->getDescription(),
-                $deadline->format("Y.m.d H:i:s")
+                $job->getAuthor(),
+                $deadline->format('Y.m.d \a\t H:i')
             );
         }
         $result .= '</ul>';

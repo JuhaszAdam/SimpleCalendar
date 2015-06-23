@@ -27,7 +27,9 @@ class SimpleManager
         file_put_contents($path, $content, FILE_APPEND | LOCK_EX);
     }
 
-
+    /**
+     * @return SimpleJob[]
+     */
     public function loadJob()
     {
         $path = "/tmp/Shepard/Job.txt";
@@ -47,5 +49,11 @@ class SimpleManager
         }
 
         return $jobs;
+    }
+
+    public function clearJobs()
+    {
+        $path = "/tmp/Shepard/Job.txt";
+        file_put_contents($path, "");
     }
 }

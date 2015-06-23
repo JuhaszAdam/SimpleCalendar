@@ -16,6 +16,7 @@ $user1 = newUser("John Doe", new \DateTimeZone("America/New_York"));
 $user2 = newUser("無名氏", new \DateTimeZone("Asia/Hong_Kong"));
 
 $manager = new SimpleManager();
+$manager->clearJobs();
 
 newJob($manager, $user1, "Sweep the floors", new \DateTime("2015-09-23 08:00:00"));
 newJob($manager, $user2, "不聞不若聞之", new \DateTime("2015-10-09 12:00:00"));
