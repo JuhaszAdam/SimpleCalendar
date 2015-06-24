@@ -17,7 +17,7 @@ class SimpleManager
         }
         $path = $filename . "Job.txt";
 
-        $deadline = $job->getDeadline();
+        $deadline = $job->getDeadline()->setTimezone(new \DateTimeZone("UTC"));
 
         $content = sprintf("%s\n%s\n%s\n",
             $job->getAuthor(),
